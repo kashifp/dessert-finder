@@ -27,7 +27,7 @@ class Dessert(db.Model):
     nuts = db.Column(db.Boolean)
     egg = db.Column(db.Boolean)
     meat = db.Column(db.Boolean)
-    url = db.Column(db.String(200))
+    url = db.Column(db.String(500))
 
     def __init__(self, name, culture, popularity, dairy, nuts, egg, meat, url):
         self.name = name
@@ -115,7 +115,7 @@ def update_dessert(id):
 @app.route('/dessert/<id>', methods=['DELETE'])
 def delete_dessert(id):
     dessert = Dessert.query.get(id)
-    
+
     db.session.delete(dessert)
     db.session.commit()
 
