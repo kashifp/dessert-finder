@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
-from strings import theString
+from databaseCode import theString
 
 # Init app
 app = Flask(__name__)
@@ -19,7 +19,7 @@ if ENV == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'db.sqlite')
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = strings.theString
+    app.config['SQLALCHEMY_DATABASE_URI'] = databaseCode.theString
 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
